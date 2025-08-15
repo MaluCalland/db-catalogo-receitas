@@ -1,0 +1,683 @@
+{
+  "tables": [
+    {
+      "id": "rND3p-89m_jZnO81P7Ye-",
+      "name": "tb_ingredientes",
+      "x": 607.4368592660625,
+      "y": -333.6694621666334,
+      "locked": false,
+      "fields": [
+        {
+          "name": "co_seq_ingrediente",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "Código sequencial de identificação do ingrediente da receita.",
+          "id": "WYAQx_F1Vhr3vc53uU460"
+        },
+        {
+          "id": "Acfq9EJ0fgJoKe-9SdWri",
+          "name": "no_ingrediente",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Nome do ingrediente utilizado na receita. Exemplo: manteiga, farinha, ovo, entre outros.",
+          "size": 255
+        },
+        {
+          "id": "-FIrGmPPJG0HMcGezYpVL",
+          "name": "ds_ingrediente",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "Descrição do ingrediente utilizado na receita. Exemplo: substâncias presentes no alimento, aditivos alimentares (corante), entre outros.",
+          "size": 255
+        }
+      ],
+      "comment": "Tabela que contêm informações de ingredientes que formam a receita. Ex.: manteiga, farinha, entre outros.",
+      "indices": [],
+      "color": "#175e7a"
+    },
+    {
+      "id": "TzutQki24j57nXeKQYSc2",
+      "name": "tb_preparos",
+      "x": 606.9373313211331,
+      "y": 170.76085350827753,
+      "locked": false,
+      "fields": [
+        {
+          "name": "co_seq_preparo",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "Código sequencial de identificação do modo de preparo da receita.",
+          "id": "twYkvahaMyc0PSlAC1F0A"
+        },
+        {
+          "id": "SnzMfCV_IV23KREm2VOTm",
+          "name": "co_receita",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Chave estrangeira que contém as informações da receita.",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "UqobM0tBglKRSu9JSXANV",
+          "name": "ds_tempo_preparo",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "Descrição do tempo de preparo de cada receita. ",
+          "size": 255,
+          "values": []
+        },
+        {
+          "id": "D2vzKnXlZNIcEhZeNN2a4",
+          "name": "ds_preparo",
+          "type": "TEXT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Descrição do modo de preparo de cada receita.",
+          "size": 65535
+        }
+      ],
+      "comment": "Tabela que contém informações sobre o modo de preparo da receita. ",
+      "indices": [],
+      "color": "#175e7a"
+    },
+    {
+      "id": "uAyAsHHsOSqTq_zuw7YOm",
+      "name": "rl_produtos_receitas",
+      "x": -206.42658634575685,
+      "y": 136.83953687678502,
+      "locked": false,
+      "fields": [
+        {
+          "id": "eYavJ8nsbpq1mcC9f_OzC",
+          "name": "co_receita",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Chave estrangeira com o código sequencial de identificação da receita.",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "nJPD0pdPK6s8LppuBaTEy",
+          "name": "co_produto",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Chave estrangeira com o código sequencial de identificação do produto final.",
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "Tabela associativa das tabelas: produto_final e receitas. Contém as informações da receita que formam o produto final.",
+      "indices": [],
+      "color": "#175e7a"
+    },
+    {
+      "id": "6iIWohE1sqnqr7ZC64Lc8",
+      "name": "tb_usuarios",
+      "x": -203.81830408025104,
+      "y": -274.0607324306945,
+      "locked": false,
+      "fields": [
+        {
+          "name": "co_seq_usuario",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "Código sequencial de identificação do usuário.",
+          "id": "5_NaD1fXgPdTN-gRExFvX"
+        },
+        {
+          "id": "hi92DXGgXOiYNfOVpt86t",
+          "name": "co_perfil",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Chave estrangeira que contém o tipo de perfil do usuário. Exemplo: administrador, cliente, entre outros.",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "Ea74SYQJHHtwq89p4jIYr",
+          "name": "no_usuario",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Nome do usuário.",
+          "size": 255
+        },
+        {
+          "id": "mNRd_s3TSyt7KJgZE4-Dw",
+          "name": "ds_senha_usuario",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Senha de acesso do usuário cadastrado.",
+          "size": 255
+        },
+        {
+          "id": "2R-o9sC1BNid79MwGBxaY",
+          "name": "st_ativo",
+          "type": "VARCHAR",
+          "default": "S",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Status de identificação do registro do usuário (S - Ativo, N - Inativo), para uso de exclusão lógica e não física.",
+          "size": 1
+        }
+      ],
+      "comment": "Tabela que contém as informações do usuário.",
+      "indices": [],
+      "color": "#175e7a"
+    },
+    {
+      "id": "N6gvI_wcc3ksBVM_tgkj4",
+      "name": "tb_perfis",
+      "x": -634.5107622952892,
+      "y": -241.7601862846464,
+      "locked": false,
+      "fields": [
+        {
+          "name": "co_seq_perfil",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "Código sequencial de identificação do perfil do usuário.",
+          "id": "v7sMiU83zycq8XkJS-BdJ"
+        },
+        {
+          "id": "MgIvRJnGDN-RuZszl4gDi",
+          "name": "no_perfil",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Nome do tipo de perfil acessado pelo usuário.",
+          "size": 50
+        }
+      ],
+      "comment": "Tabela que contém os tipos de perfil. Exemplo: administrador, cliente, entre outros.",
+      "indices": [],
+      "color": "#175e7a"
+    },
+    {
+      "id": "VhfjbOaXp4kYuGXOT3YFK",
+      "name": "tb_produtos",
+      "x": -633.5155911448805,
+      "y": -29.69016951184969,
+      "locked": false,
+      "fields": [
+        {
+          "name": "co_seq_produto",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "Código sequencial de identificação do produto final.",
+          "id": "1PbA1jBgxZU2wknIEvaYk"
+        },
+        {
+          "id": "R9yR7c_G6BAjxrioJ-Bck",
+          "name": "co_tipo_produto",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Chave estrangeira que contém o tipo de produto. Exemplo: bolo, brownie, entre outros.",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "EwbyhNcS7s7MUpfHg24ep",
+          "name": "no_produto",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Nome do produto final. Exemplo: bolo de cenoura com cobertura de chocolate, bolo de limão, entre outros.",
+          "size": 255
+        },
+        {
+          "id": "KO4hQU4KisMsuqsnkZ5fH",
+          "name": "qt_produto",
+          "type": "NUMERIC",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Quantidade do produto final. Exemplo: bolo de 3kg, 10 mini bolos, entre outros."
+        },
+        {
+          "id": "eZ7enTpordA7jKYstZ4IT",
+          "name": "vl_unitario_produto",
+          "type": "DECIMAL",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Preço do produto final. "
+        },
+        {
+          "id": "26LMGXCqfaTrY1rF15at9",
+          "name": "ds_img_produto",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Imagem do produto final.",
+          "size": 255
+        },
+        {
+          "id": "Wk_pV4rXSIDdHQpyNeSM4",
+          "name": "st_ativo",
+          "type": "VARCHAR",
+          "default": "S",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Status de identificação do registro do produto final (S - Ativo, N - Inativo), para uso de exclusão lógica e não física.",
+          "size": 1
+        }
+      ],
+      "comment": "Tabela que contém as informações do produto final.",
+      "indices": [],
+      "color": "#175e7a"
+    },
+    {
+      "id": "Vm-ApdtJHn1jv9Z3B867d",
+      "name": "tb_tipo_produto",
+      "x": -639.3697222571718,
+      "y": 334.4144216703977,
+      "locked": false,
+      "fields": [
+        {
+          "name": "co_seq_tipo_produto",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "Código sequencial de identificação do tipo de produto.",
+          "id": "s_k_EfZ5oX_Ivlk6WBp2R"
+        },
+        {
+          "id": "tKvhUM3kJOUoOGmY6SXDz",
+          "name": "no_tipo_produto",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Nome do tipo do produto. Exemplo: bolo caseiro, bolo festivo, docinho, entre outros.",
+          "size": 255
+        }
+      ],
+      "comment": "Taela que contém as informações do tipo do produto. Exemplo: bolo caseiro, bolo festivo, docinho, browmie, entre outros.",
+      "indices": [],
+      "color": "#175e7a"
+    },
+    {
+      "id": "CklSg9A2Hocwikr9lmdOV",
+      "name": "tb_receitas",
+      "x": 206.7017074269695,
+      "y": 19.108955883875865,
+      "locked": false,
+      "fields": [
+        {
+          "name": "co_seq_receita",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "Código sequencial de identificação da receita.",
+          "id": "Vjbz4KbcwzEWqdngqDEhU"
+        },
+        {
+          "id": "YDD18oWuwowliunNLuUj1",
+          "name": "co_tipo_receita",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Chave estrangeira que contém o tipo de receita. Exemplo: recheio, massa, cobertura, entre outros.",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "-grJnq7cUHBf1qHzuETPU",
+          "name": "no_receita",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Nome da receita. Exemplo: massa de limão, cobertura de chocolate, recheio de abacaxi, entre outros.",
+          "size": 255
+        },
+        {
+          "id": "Npqz-ouuPHVSeslZO1Tp6",
+          "name": "ds_receita",
+          "type": "TEXT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Descrição da receita, com todas suas informações.",
+          "size": 65535
+        },
+        {
+          "id": "6_bOlgKLgyAvAkrfFCFw_",
+          "name": "ds_rendimento_receita",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "Descrição do rendimento para a receita. Ex.: Rende 2kg de massa, rende 10 bolos.",
+          "size": 255
+        },
+        {
+          "id": "8uOpeOB1YQhF_1PwAH1_O",
+          "name": "st_ativo",
+          "type": "VARCHAR",
+          "default": "S",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Status de identificação do registro da receita (S - Ativo, N - Inativo), para uso de exclusão lógica e não física.",
+          "size": 1
+        }
+      ],
+      "comment": "Tabela que contêm informações das receitas.",
+      "indices": [],
+      "color": "#175e7a"
+    },
+    {
+      "id": "1_bY0sk7WmJdJ-2NNeSXj",
+      "name": "tb_tipo_receita",
+      "x": 207.17931383313623,
+      "y": -193.07302133044345,
+      "locked": false,
+      "fields": [
+        {
+          "name": "co_seq_tipo_receita",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "Código sequencial de identificação do tipo da receita.",
+          "id": "GOMwkNjgl0ZmWz4bVVy5r"
+        },
+        {
+          "id": "GP6UIS5aEJ7kF7czhEloX",
+          "name": "ds_tipo_receita",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Descrição do tipo da receita. Exemplo: recheio, massa, cobertura, entre outros.",
+          "size": 255
+        }
+      ],
+      "comment": "Tabela que contém as informações do tipo de receita. Exemplo: recheio, massa, cobertura, entre outros.",
+      "indices": [],
+      "color": "#175e7a"
+    },
+    {
+      "id": "H09r_H2xOuQUDJEzuQlLQ",
+      "name": "tb_quantitativos_ingrediente_receita",
+      "x": 608.9894788338204,
+      "y": -118.19062554309227,
+      "locked": false,
+      "fields": [
+        {
+          "name": "co_receita",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Chave estrangeira com o código sequencial de identificação da receita.",
+          "id": "rNdrbomal49ExaEQo7Mju"
+        },
+        {
+          "id": "JpkdtjFE8DQjb0BGXRMIU",
+          "name": "co_ingrediente",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Chave estrangeira com o código sequencial de identificação dos ingredientes da receita.",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "0sQgAnn6hRfy-hEw16__1",
+          "name": "ds_quantitativo",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "Quantidade do ingrediente utilizado na receita. Exemplo: 100 gramas de farinha, 30 gramas de manteiga, entre outros.",
+          "size": 255
+        }
+      ],
+      "comment": "Tabela associativa das tabelas: receitas e ingredientes_receita. Contém as informações dos ingredientes, e suas determinadas quantidades, para realização da receita.",
+      "indices": [],
+      "color": "#175e7a"
+    }
+  ],
+  "relationships": [
+    {
+      "startTableId": "6iIWohE1sqnqr7ZC64Lc8",
+      "startFieldId": "hi92DXGgXOiYNfOVpt86t",
+      "endTableId": "N6gvI_wcc3ksBVM_tgkj4",
+      "endFieldId": "v7sMiU83zycq8XkJS-BdJ",
+      "cardinality": "one_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_perfil_usuario",
+      "id": 0
+    },
+    {
+      "startTableId": "VhfjbOaXp4kYuGXOT3YFK",
+      "startFieldId": "R9yR7c_G6BAjxrioJ-Bck",
+      "endTableId": "Vm-ApdtJHn1jv9Z3B867d",
+      "endFieldId": "s_k_EfZ5oX_Ivlk6WBp2R",
+      "cardinality": "one_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_tipoproduto_produto",
+      "id": 1
+    },
+    {
+      "startTableId": "uAyAsHHsOSqTq_zuw7YOm",
+      "startFieldId": "eYavJ8nsbpq1mcC9f_OzC",
+      "endTableId": "CklSg9A2Hocwikr9lmdOV",
+      "endFieldId": "Vjbz4KbcwzEWqdngqDEhU",
+      "cardinality": "one_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_receita_produto",
+      "id": 2
+    },
+    {
+      "startTableId": "uAyAsHHsOSqTq_zuw7YOm",
+      "startFieldId": "nJPD0pdPK6s8LppuBaTEy",
+      "endTableId": "VhfjbOaXp4kYuGXOT3YFK",
+      "endFieldId": "1PbA1jBgxZU2wknIEvaYk",
+      "cardinality": "one_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_produto_receita",
+      "id": 3
+    },
+    {
+      "startTableId": "CklSg9A2Hocwikr9lmdOV",
+      "startFieldId": "YDD18oWuwowliunNLuUj1",
+      "endTableId": "1_bY0sk7WmJdJ-2NNeSXj",
+      "endFieldId": "GOMwkNjgl0ZmWz4bVVy5r",
+      "cardinality": "one_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_tiporeceita_receita",
+      "id": 4
+    },
+    {
+      "startTableId": "TzutQki24j57nXeKQYSc2",
+      "startFieldId": "SnzMfCV_IV23KREm2VOTm",
+      "endTableId": "CklSg9A2Hocwikr9lmdOV",
+      "endFieldId": "Vjbz4KbcwzEWqdngqDEhU",
+      "cardinality": "many_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_receita_preparo",
+      "id": 5
+    },
+    {
+      "startTableId": "H09r_H2xOuQUDJEzuQlLQ",
+      "startFieldId": "rNdrbomal49ExaEQo7Mju",
+      "endTableId": "CklSg9A2Hocwikr9lmdOV",
+      "endFieldId": "Vjbz4KbcwzEWqdngqDEhU",
+      "cardinality": "one_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_receita_quantitativo",
+      "id": 6
+    },
+    {
+      "startTableId": "H09r_H2xOuQUDJEzuQlLQ",
+      "startFieldId": "JpkdtjFE8DQjb0BGXRMIU",
+      "endTableId": "rND3p-89m_jZnO81P7Ye-",
+      "endFieldId": "WYAQx_F1Vhr3vc53uU460",
+      "cardinality": "one_to_one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_ingrediente_quantitativo",
+      "id": 7
+    }
+  ],
+  "notes": [],
+  "subjectAreas": [],
+  "database": "mysql",
+  "title": "db_catalogo_receita"
+}
